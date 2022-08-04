@@ -11,5 +11,9 @@ modules:
 resources:
   - key: main
     path: static/hello-world/build
+permissions:
+  content:
+    styles:
+      - 'unsafe-inline'
 app:
   id: ari:cloud:ecosystem::app/1c9ee7a0-fc8a-4ee4-bbb6-dd75f41c352f

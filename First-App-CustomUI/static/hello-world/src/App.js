@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Button from '@atlaskit/button';
 import { invoke } from '@forge/bridge';
 
 function App() {
@@ -10,7 +11,9 @@ function App() {
 
     return (
         <div>
-            <img src="./test_image.png"/><p/>
+            <h2>Dashboard</h2>
+            <Button appearance='primary'>View Dashboard</Button>
+            <p/>
             {data ? data : 'Loading...'}
         </div>
     );
