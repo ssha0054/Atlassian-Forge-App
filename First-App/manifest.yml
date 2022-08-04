@@ -1,0 +1,10 @@
+modules:
+  jira:projectPage:
+    - key: first-app-hello-world-project-page
+      function: main
+      title: First App
+  function:
+    - key: main
+      handler: index.run
+app:
+  id: ari:cloud:ecosystem::app/9004a484-0dfe-46c9-93b8-0d2c2671f610
