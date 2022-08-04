@@ -10,6 +10,7 @@ function App() {
 
     return (
         <div>
+            <img src="./test_image.png"/><p/>
             {data ? data : 'Loading...'}
         </div>
     );
