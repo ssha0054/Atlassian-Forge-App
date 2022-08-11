@@ -6,5 +6,8 @@ modules:
   function:
     - key: main
       handler: index.run
+permissions:
+  scopes:
+    - read:jira-work
 app:
   id: ari:cloud:ecosystem::app/9004a484-0dfe-46c9-93b8-0d2c2671f610
