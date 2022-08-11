@@ -1,4 +1,4 @@
-import ForgeUI, { IssueGlance, IssuePanel, render, ProjectPage, Fragment, Text, useState, useProductContext } from '@forge/ui';
+import ForgeUI, { ModalDialog, IssueAction, IssueGlance, IssuePanel, render, ProjectPage, Fragment, Text, useState, useProductContext } from '@forge/ui';
 import api, { route } from '@forge/api';
 
 const fetchNumberOfIssues = async () => {
@@ -43,4 +43,24 @@ export const glance = render(
             <Text>Information about this issue</Text>
         </Fragment>
     </IssueGlance>
+)
+
+const Action = () => {
+    const [isVisible, setVisible] = useState(true);
+    if (isVisible) {
+        return (
+            <ModalDialog closeButtonText="Do It!" header="My Action" onClose={() => setVisible(false)}>
+                <Text>We will now perform an action</Text>
+            </ModalDialog>
+        )
+    } else {
+        console.log("Performing the action")
+        return null;
+    }
+}
+
+export const action = render(
+    <IssueAction>
+        <Action/>
+    </IssueAction>
 )

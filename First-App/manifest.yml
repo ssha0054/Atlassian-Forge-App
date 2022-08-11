@@ -13,6 +13,10 @@ modules:
       title: My Issue Glance
       label: Issue Glance
       function: glance
+  jira:issueAction:
+    - key: my-issue-action
+      title: Perform an Action
+      function: action
   function:
     - key: main
       handler: index.run
@@ -20,6 +24,8 @@ modules:
       handler: index.panel
     - key: glance
       handler: index.glance
+    - key: action
+      handler: index.action
 permissions:
   scopes:
     - read:jira-work
