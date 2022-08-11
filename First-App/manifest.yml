@@ -26,6 +26,10 @@ modules:
       name: Politeness check
       description: Make sure the summary contains the magic word
       function: validate
+  jira:adminPage:
+    - key: my-admin-page
+      title: My First Admin
+      function: admin
   function:
     - key: main
       handler: index.run
@@ -39,6 +43,8 @@ modules:
       handler: index.activity
     - key: validate
       handler: index.validate
+    - key: admin
+      handler: index.admin
 permissions:
   scopes:
     - read:jira-work

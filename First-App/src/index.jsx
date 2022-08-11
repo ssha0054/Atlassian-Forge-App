@@ -1,4 +1,4 @@
-import ForgeUI, { IssueActivity, ModalDialog, IssueAction, IssueGlance, IssuePanel, render, ProjectPage, Fragment, Text, useState, useProductContext } from '@forge/ui';
+import ForgeUI, { AdminPage, IssueActivity, ModalDialog, IssueAction, IssueGlance, IssuePanel, render, ProjectPage, Fragment, Text, useState, useProductContext } from '@forge/ui';
 import api, { route } from '@forge/api';
 
 const fetchNumberOfIssues = async () => {
@@ -89,3 +89,11 @@ export const validate = async ({issue}) => {
         errorMessage: "You must use the magic word"
     }
 }
+
+export const admin = render(
+    <AdminPage>
+        <Fragment>
+            <Text>Some admin stuff here</Text>
+        </Fragment>
+    </AdminPage>
+)
