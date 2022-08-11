@@ -30,6 +30,10 @@ modules:
     - key: my-admin-page
       title: My First Admin
       function: admin
+  trigger:
+    - key: my-trigger
+      function: trigger
+      events: ['avi:jira:updated:issue']
   function:
     - key: main
       handler: index.run
@@ -45,6 +49,8 @@ modules:
       handler: index.validate
     - key: admin
       handler: index.admin
+    - key: trigger
+      handler: index.trigger
 permissions:
   scopes:
     - read:jira-work
