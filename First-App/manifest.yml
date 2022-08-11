@@ -35,6 +35,15 @@ modules:
       type: number
       description: The number field
       name: AAA My Field
+  jira:customFieldType:
+    - key: my-field-type
+      name: Score
+      description: A score between 0 and 5
+      type: number
+      validation:
+        expression: "value <=5 && value >= 0"
+        message: The value must be between 0 and 5.
+      function: field-renderer
   trigger:
     - key: my-trigger
       function: trigger
@@ -56,6 +65,8 @@ modules:
       handler: index.admin
     - key: trigger
       handler: index.trigger
+    - key: field-renderer
+      handler: index.fieldRenderer
 permissions:
   scopes:
     - read:jira-work

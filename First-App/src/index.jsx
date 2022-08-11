@@ -1,4 +1,4 @@
-import ForgeUI, { AdminPage, IssueActivity, ModalDialog, IssueAction, IssueGlance, IssuePanel, render, ProjectPage, Fragment, Text, useState, useProductContext } from '@forge/ui';
+import ForgeUI, { CustomField, AdminPage, IssueActivity, ModalDialog, IssueAction, IssueGlance, IssuePanel, render, ProjectPage, Fragment, Text, useState, useProductContext } from '@forge/ui';
 import api, { route } from '@forge/api';
 
 const fetchNumberOfIssues = async () => {
@@ -102,3 +102,21 @@ export async function trigger(event, context) {
     console.log("Event triggered");
     console.log(JSON.stringify(events));
 }
+
+const FieldData = () => {
+    const { extensionContext: {fieldValue}} = useProductContext();
+
+    let result = "";
+    for (let i = 0; i < fieldValue; i++) {
+        result += "*";
+    }
+    return (
+        <Text>{result}</Text>
+    );
+}
+
+export const fieldRenderer = render(
+    <CustomField>
+        <FieldData/>
+    </CustomField>
+)
