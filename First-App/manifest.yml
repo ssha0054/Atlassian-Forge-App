@@ -8,11 +8,18 @@ modules:
       title: My Issue Panel
       function: panel
       icon: https://developer.atlassian.com/platform/forge/images/issue-panel-icon.svg
+  jira:issueGlance:
+    - key: my-issue-glance
+      title: My Issue Glance
+      label: Issue Glance
+      function: glance
   function:
     - key: main
       handler: index.run
     - key: panel
       handler: index.panel
+    - key: glance
+      handler: index.glance
 permissions:
   scopes:
     - read:jira-work
