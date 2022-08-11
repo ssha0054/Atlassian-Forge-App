@@ -30,6 +30,11 @@ modules:
     - key: my-admin-page
       title: My First Admin
       function: admin
+  jira:customField:
+    - key: my-field
+      type: number
+      description: The number field
+      name: AAA My Field
   trigger:
     - key: my-trigger
       function: trigger
