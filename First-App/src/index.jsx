@@ -8,7 +8,10 @@ const fetchNumberOfIssues = async () => {
 }
 
 const App = () => {
-    const [numIssues] = useState(async () => await fetchNumberOfIssues());
+    const context = useProductContext();
+    console.log(JSON.stringify(context));
+
+    const [numIssues] = useState(fetchNumberOfIssues());
     return (
         <Fragment>
             <Text>Number of issues: {numIssues}</Text>
