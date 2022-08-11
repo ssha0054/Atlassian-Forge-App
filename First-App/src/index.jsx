@@ -1,4 +1,4 @@
-import ForgeUI, { ModalDialog, IssueAction, IssueGlance, IssuePanel, render, ProjectPage, Fragment, Text, useState, useProductContext } from '@forge/ui';
+import ForgeUI, { IssueActivity, ModalDialog, IssueAction, IssueGlance, IssuePanel, render, ProjectPage, Fragment, Text, useState, useProductContext } from '@forge/ui';
 import api, { route } from '@forge/api';
 
 const fetchNumberOfIssues = async () => {
@@ -63,4 +63,12 @@ export const action = render(
     <IssueAction>
         <Action/>
     </IssueAction>
+)
+
+export const activity = render(
+    <IssueActivity>
+        <Fragment>
+            <Text>Here is some text</Text>
+        </Fragment>
+    </IssueActivity>
 )

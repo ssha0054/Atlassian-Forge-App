@@ -17,6 +17,10 @@ modules:
     - key: my-issue-action
       title: Perform an Action
       function: action
+  jira:issueActivity:
+    - key: my-issue-activity
+      title: Some Text
+      function: activity
   function:
     - key: main
       handler: index.run
@@ -26,6 +30,8 @@ modules:
       handler: index.glance
     - key: action
       handler: index.action
+    - key: activity
+      handler: index.activity
 permissions:
   scopes:
     - read:jira-work
