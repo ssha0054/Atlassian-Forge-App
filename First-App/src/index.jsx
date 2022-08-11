@@ -1,4 +1,4 @@
-import ForgeUI, { render, ProjectPage, Fragment, Text, useState } from '@forge/ui';
+import ForgeUI, { platformContext, IssuePanel, render, ProjectPage, Fragment, Text, useState, useProductContext } from '@forge/ui';
 import api, { route } from '@forge/api';
 
 const fetchNumberOfIssues = async () => {
@@ -21,3 +21,18 @@ export const run = render(
         <App />
     </ProjectPage>
 );
+
+const Panel = () => {
+    const {platformContext: {issueKey}} = useProductContext();
+    return(
+        <Fragment>
+            <Text>Something about this issue: {issueKey}</Text>
+        </Fragment>
+    )
+}
+
+export const panel = render(
+    <IssuePanel>
+        <Panel />
+    </IssuePanel>
+)

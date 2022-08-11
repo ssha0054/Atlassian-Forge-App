@@ -3,9 +3,16 @@ modules:
     - key: first-app-hello-world-project-page
       function: main
       title: First App
+  jira:issuePanel:
+    - key: my-issue-panel
+      title: My Issue Panel
+      function: panel
+      icon: https://developer.atlassian.com/platform/forge/images/issue-panel-icon.svg
   function:
     - key: main
       handler: index.run
+    - key: panel
+      handler: index.panel
 permissions:
   scopes:
     - read:jira-work
