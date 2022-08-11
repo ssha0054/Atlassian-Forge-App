@@ -21,6 +21,11 @@ modules:
     - key: my-issue-activity
       title: Some Text
       function: activity
+  jira:workflowValidator:
+    - key: my-validator
+      name: Politeness check
+      description: Make sure the summary contains the magic word
+      function: validate
   function:
     - key: main
       handler: index.run
@@ -32,6 +37,8 @@ modules:
       handler: index.action
     - key: activity
       handler: index.activity
+    - key: validate
+      handler: index.validate
 permissions:
   scopes:
     - read:jira-work

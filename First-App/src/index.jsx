@@ -72,3 +72,17 @@ export const activity = render(
         </Fragment>
     </IssueActivity>
 )
+
+export const validate = async ({issue}) => {
+    console.log("Validator invoked");
+    console.log(JSON.stringify(issue));
+    const {key: issuekey} = issue;
+    const response = await api.asApp().requestJira(route`/rest/api/3/issue/${issuekey}`);
+    const data = await response.json()
+    const summary = data.fields.summary;
+
+    return {
+        result: summary.includes("please"),
+        errorMessage: "You must use the magic word"
+    }
+}
