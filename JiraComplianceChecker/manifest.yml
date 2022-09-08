@@ -13,5 +13,8 @@ modules:
 resources:
   - key: main
     path: static/issue-panel/build
+permissions:
+  scopes:
+    - 'read:jira-work'
 app:
   id: ari:cloud:ecosystem::app/5fd924a4-01f6-4992-969f-5da1760e957b
