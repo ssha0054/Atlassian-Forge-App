@@ -23,6 +23,26 @@ const fetchIssuesWithNumberOfComments = async function(projectKey) {
   return issueWithNumberOfComments;
 }
 
+const updateEngagementScore = async function(issueId, score) {
+  const fieldKey = "5c501b60-ad5d-4a5e-9387-b24042cc35ef__DEVELOPMENT__engagement-score-field";
+  const body = {updates: [
+    {
+      issueIds: [issueId],
+      value: score
+    }
+  ]};
+  const response = await api.asApp().requestJira(route`/rest/api/3/app/field/${fieldKey}/value`, {
+    method: 'PUT',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  });
+  console.log(`Reponses ${response.status} ${response.statusText}`);
+}
+
+
 const EngagementPanel = () => {
   const {platformContext: {issueKey}} = useProductContext();
   const [numComments] = useState(fetchNumberOfComments(issueKey));
@@ -67,3 +87,11 @@ export const engagementOverview = render(
     <EngagementOverview/>
   </ProjectPage>
 )
+
+export async function trigger(event, context) {
+  console.log("Trigger fired");
+  console.log(JSON.stringify(event));
+  const numComments = await fetchNumberOfComments(event.issue.key);
+  await updateEngagementScore(event.issue.id, numComments);
+  console.log("Trigger finished");
+}
