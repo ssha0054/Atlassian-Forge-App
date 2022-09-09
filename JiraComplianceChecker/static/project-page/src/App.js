@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div>
-      {data ? data : 'Loading...'}
+      {data ? data[0].key : 'Loading...'}
       
     </div>
   );
