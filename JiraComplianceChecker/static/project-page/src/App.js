@@ -10,8 +10,28 @@ function App() {
 
   return (
     <div>
-      {data ? data[0].key : 'Loading...'}
-      
+      <table>
+        <tr>
+          <th>Key</th>
+          <th>Score</th>
+        </tr>
+        {data ? 
+          data.map(issue => (
+            <tr>
+              <td>{issue.key}</td>
+              <td>
+                <svg width="100%" height="50px">
+                  <g class="bars">
+                    <rect fill="#3d5599" width="100%" height="25"></rect>
+                    <rect fill="#cd4d3e" width={issue.score} height="25"></rect>
+                  </g>
+                </svg>
+              </td>
+            </tr>
+          )) 
+          : 'Loading...'
+        }
+      </table>
     </div>
   );
 }
