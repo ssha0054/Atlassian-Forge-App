@@ -20,10 +20,10 @@ function App() {
             <tr>
               <td>{issue.key}</td>
               <td>
-                <svg width="100%" height="50px">
+                <svg width="100px" height="50px">
                   <g class="bars">
-                    <rect fill="#3d5599" width="100%" height="25"></rect>
-                    <rect fill="#cd4d3e" width={issue.score} height="25"></rect>
+                    <rect fill="#ff0000" width="100%" height="10"></rect>
+                    <rect fill="#00ff00" width={issue.score} height="10"></rect>
                   </g>
                 </svg>
               </td>
